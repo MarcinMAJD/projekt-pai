@@ -1,0 +1,6 @@
+[book]
+authors = ["Grzegorz Bujak"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Projekt PAI"
