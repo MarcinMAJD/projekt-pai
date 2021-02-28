@@ -2,6 +2,7 @@ package warsztat.warsztatserver.security
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository
 import org.springframework.stereotype.Component
 
 @Component
@@ -19,5 +20,9 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
             .logout()
                 .deleteCookies()
                 .permitAll()
+                .and()
+            .csrf()
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                .disable() // TODO: Włącz CSRF, gdy będzie gotowy klient
     }
 }
